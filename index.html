@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batta Corp - Technology Consulting Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--light);
+            transform: skewY(-3deg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.1));
+            transform: rotate(45deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            top: -20%;
+            left: -20%;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">BATTA CORP</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transform Your Technology Infrastructure</h1>
+        <p>Expert consulting services for modern technology challenges</p>
+        <button style="margin-top: 2rem; padding: 1rem 2.5rem; background: var(--secondary); border: none; color: white; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.3s ease;"
+                onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+            Schedule Consultation
+        </button>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Our Expertise</h2>
+        <div class="services-grid">
+            <!-- Web Development Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Full-stack solutions with modern frameworks like React, Angular, and Node.js</p>
+            </div>
+            
+            <!-- Mobile Development Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Development</h3>
+                <p>Native and cross-platform apps using Flutter and React Native</p>
+            </div>
+
+            <!-- Data Engineering Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Data Engineering</h3>
+                <p>Big data solutions with AWS, GCP, and Azure data platforms</p>
+            </div>
+
+            <!-- Infra Ops Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Infrastructure Operations</h3>
+                <p>Cloud infrastructure management and DevOps solutions</p>
+            </div>
+
+            <!-- Security Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security Consulting</h3>
+                <p>End-to-end security audits and compliance management</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📧 contact@battacorp.com</p>
+                <p>📞 (555) 123-4567</p>
+                <p>📍 123 Tech Street, Silicon Valley, CA</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
