@@ -31,6 +31,76 @@
             color: var(--dark);
         }
 
+        /* Header Styles with Logo */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
         /* Header Styles */
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -186,44 +256,131 @@
 
         /* Footer Styles */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 1rem;
-        }
+        background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);
+        color: white;
+        padding: 6rem 1rem 3rem;
+        position: relative;
+        margin-top: 5rem;
+    }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
+    footer::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: var(--light);
+        transform: skewY(-2deg);
+    }
 
-        .footer-section h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 4rem;
+    }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
+    .footer-section {
+        margin-bottom: 2rem;
+    }
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
+    .footer-section h4 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        position: relative;
+        color: var(--light);
+    }
 
-        .social-links a:hover {
-            background: var(--primary);
-        }
+    .footer-section h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--primary);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+    }
+
+    .footer-links a i {
+        width: 25px;
+        height: 25px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .newsletter-form {
+        margin-top: 1.5rem;
+    }
+
+    .newsletter-input {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .newsletter-input::placeholder {
+        color: rgba(255,255,255,0.7);
+    }
+
+    .newsletter-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .newsletter-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 4rem;
+        margin-top: 4rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-bottom p {
+        color: rgba(255,255,255,0.6);
+        margin: 0.5rem 0;
+    }
+
 
         /* Animations */
         @keyframes fadeInUp {
@@ -252,13 +409,195 @@
             }
         }
     </style>
+    <style>
+          .team {
+        padding: 8rem 1rem;
+        background: linear-gradient(45deg, #f8fafc 0%, #f1f5f9 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        color: var(--dark);
+        position: relative;
+    }
+
+    .team h2::after {
+        content: '';
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--primary);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .team-member {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .member-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        overflow: hidden;
+        position: relative;
+        border: 4px solid var(--primary);
+        transition: all 0.3s ease;
+    }
+
+    .team-member:hover .member-photo {
+        transform: scale(1.05);
+        border-color: var(--secondary);
+    }
+
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0.1);
+        transition: filter 0.3s ease;
+    }
+
+    .team-member:hover .member-photo img {
+        filter: grayscale(0);
+    }
+
+    .member-info {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .member-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .member-info p.position {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .member-info p.expertise {
+        color: #64748b;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .member-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .team-member:hover .member-social {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .member-social a {
+        width: 40px;
+        height: 40px;
+        background: rgba(37, 99, 235, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        transition: all 0.3s ease;
+    }
+
+    .member-social a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .view-profile {
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .team-member:hover .view-profile {
+        bottom: 20px;
+    }
+
+    .view-profile a {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .view-profile a:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .team-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+        
+        .member-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
 </head>
 <body>
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo">BATTA CORP</a>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Batta Corp Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -323,24 +662,247 @@
             </div>
         </div>
     </section>
+    <!-- Update Team Section HTML (simplified) -->
+<section class="team" id="team">
+    <h2>Meet Our Experts</h2>
+    <div class="team-grid"></div>
+</section>
 
     <footer id="contact">
         <div class="footer-content">
+            <!-- About Section -->
             <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>📧 contact@battacorp.com</p>
-                <p>📞 (555) 123-4567</p>
-                <p>📍 1 rue du Startsboug, Paris 75001  </p>
+                <h4>About Us</h4>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    Batta Corp delivers cutting-edge technology solutions through expert consulting and innovative development services.
+                </p>
             </div>
+    
+            <!-- Quick Links -->
             <div class="footer-section">
-                <h4>Connect With Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Services</a></li>
+                    <li><a href="#team"><i class="fas fa-chevron-right"></i>Our Team</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i>Blog</a></li>
+                </ul>
+            </div>
+    
+            <!-- Newsletter -->
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 1rem; font-size: 0.9rem;">
+                    Get updates about our latest projects and tech insights
+                </p>
+            </div>
+    
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:contact@battacorp.com">
+                            <i class="fas fa-envelope"></i>
+                            contact@battacorp.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+1234567890">
+                            <i class="fas fa-phone"></i>
+                            +1 (234) 567-890
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-map-marker-alt"></i>
+                            1 rue du Startsboug,<br>
+                            Paris 75001
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+            </div>
+            <p>© 2025 Batta Corp. All rights reserved</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </div>
     </footer>
+
+
+
+
+
+
+    <!-- Add this JavaScript before closing </body> -->
+<script>
+    // Team Members Data
+    const teamMembers = [
+        {
+            name: "Abdallah",
+            position: "Mobile Development Lead",
+            expertise: "iOS & Android Expert",
+            photo: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" },
+                { platform: "github", url: "#" }
+            ]
+        },
+        {
+            name: "Sohaib",
+            position: "Web Development Specialist",
+            expertise: "Full Stack Developer",
+            photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" },
+                { platform: "github", url: "#" }
+            ]
+        },
+        {
+            name: "Ous",
+            position: "Java Architect",
+            expertise: "Enterprise Solutions",
+            photo: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" }
+            ]
+        },
+        {
+            name: "Zak",
+            position: ".NET Expert",
+            expertise: "C# & ASP.NET Development",
+            photo: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "github", url: "#" }
+            ]
+        },
+        {
+            name: "Basset",
+            position: "Data Engineering Lead",
+            expertise: "Big Data & Analytics",
+            photo: "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" },
+                { platform: "medium", url: "#" }
+            ]
+        },
+        {
+            name: "Bouz",
+            position: "Network Architect",
+            expertise: "Infrastructure Solutions",
+            photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" }
+            ]
+        },
+        {
+            name: "Bsri",
+            position: "DevOps Engineer",
+            expertise: "CI/CD & Automation",
+            photo: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "github", url: "#" }
+            ]
+        },
+        {
+            name: "Hfz",
+            position: "Security Consultant",
+            expertise: "Cybersecurity Expert",
+            photo: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" }
+            ]
+        },
+        {
+            name: "Djamel",
+            position: "Technical Director",
+            expertise: "Project Management",
+            photo: "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "linkedin", url: "#" }
+            ]
+        },
+        {
+            name: "Twil",
+            position: "Systems Architect",
+            expertise: "Enterprise Solutions",
+            photo: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600",
+            social: [
+                { platform: "github", url: "#" }
+            ]
+        }
+    ];
+
+    // Social Icons Mapping
+    const socialIcons = {
+        linkedin: "fab fa-linkedin",
+        github: "fab fa-github",
+        medium: "fab fa-medium",
+        twitter: "fab fa-twitter",
+        email: "fas fa-envelope",
+        website: "fas fa-globe"
+    };
+
+    // Team Member Template
+    function createMemberCard(member) {
+        return `
+        <div class="team-member">
+            <div class="member-photo">
+                <img src="${member.photo}" alt="${member.name}">
+            </div>
+            <div class="member-info">
+                <h3>${member.name}</h3>
+                <p class="position">${member.position}</p>
+                <p class="expertise">${member.expertise}</p>
+                <div class="member-social">
+                    ${member.social.map(social => `
+                        <a href="${social.url}" target="_blank" rel="noopener">
+                            <i class="${socialIcons[social.platform]}"></i>
+                        </a>
+                    `).join('')}
+                </div>
+            </div>
+            <div class="view-profile">
+                <a href="#">View Profile →</a>
+            </div>
+        </div>
+        `;
+    }
+
+    // Render Team Members
+    document.addEventListener('DOMContentLoaded', () => {
+        const teamGrid = document.querySelector('.team-grid');
+        teamGrid.innerHTML = teamMembers.map(createMemberCard).join('');
+    });
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
+
+
+
+
+
+
