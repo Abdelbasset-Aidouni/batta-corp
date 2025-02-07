@@ -269,8 +269,9 @@
         <p>Expert consulting services for modern technology challenges</p>
         <button style="margin-top: 2rem; padding: 1rem 2.5rem; background: var(--secondary); border: none; color: white; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.3s ease;"
                 onmouseover="this.style.transform='scale(1.05)'"
-                onmouseout="this.style.transform='scale(1)'">
-            Schedule Consultation
+                onmouseout="this.style.transform='scale(1)'"
+                onclick="scheduleConsultation()">
+                Schedule Consultation
         </button>
     </section>
 
@@ -343,4 +344,17 @@
         </div>
     </footer>
 </body>
+<script>
+function scheduleConsultation() {
+    const messages = [
+        'Your consultation has been scheduled!',
+        'We think you are too short to hold a meeting, go to your mommy!'
+    ];
+    
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    console.log(randomMessage);
+    alert(randomMessage);
+}
+</script>
+    
 </html>
